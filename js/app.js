@@ -10,7 +10,7 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `
-  <div class="single-product  ${className}">
+  <div class="single-product">
       <div>
       <img class="product-image" src=${pd.image}></img>
     
