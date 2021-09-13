@@ -7,28 +7,32 @@ const loadProducts = () => {
 // show all product in UI 
 const showProducts = (products) => {
   products.map((pd) => {
-    console.log(pd);
-  const div = document.createElement("div");
-  div.classList.add("product");
+    const div = document.createElement("div");
+    div.classList.add("product");
     div.innerHTML = `
-  <div class="single-product">
-      <div class = ".image-div">
-    <img class="product-image" src=${pd.image}></img>
-      </div>
+  <div class="single-product  ${className}">
+      <div>
+      <img class="product-image" src=${pd.image}></img>
+    
       <h3>${pd.title}</h3>
       <p>Category: ${pd.category}</p>
       <p>Average Rating: ${pd.rating.rate} ,${pd.rating.count} Ratings </p>
+      </div>
+
+      <div>
       <h2>Price: $ ${pd.price}</h2>
       <button onclick="addToCart(${pd.id},${pd.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button  onclick ="showDetails(${pd})" id="details-btn" class="btn btn-danger">Details</button></div>
+      </div>
       
       `;
-  document.getElementById("all-products").appendChild(div);
+    document.getElementById("all-products").appendChild(div);
   });
-  
-  
-  
+
 };
+
+
+
 
 let count = 0;
 const addToCart = (id, price) => {
