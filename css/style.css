@@ -77,7 +77,7 @@ body {
 }
 .product-image {
   width: 150px;
-  object-fit: cover;
+  height: 200px;
 }
 
 .star-outer{
