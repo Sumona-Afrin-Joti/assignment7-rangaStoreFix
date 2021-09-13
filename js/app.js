@@ -6,7 +6,9 @@ const loadProducts = () => {
 
 // show all product in UI 
 const showProducts = (products) => {
+  const startTotal = 5;
   products.map((pd) => {
+    const className = `id-${pd.id}`;
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `
@@ -19,17 +21,42 @@ const showProducts = (products) => {
       <p>Average Rating: ${pd.rating.rate} ,${pd.rating.count} Ratings </p>
       </div>
 
-      <div>
+      <div class= "${className}">
       <h2>Price: $ ${pd.price}</h2>
+      <div class="star-outer">
+        <div class="star-inner">
+        
+        </div>
+      </div>
+      <span>${pd.rating.rate} (${pd.rating.count})</span>
+      <br>
       <button onclick="addToCart(${pd.id},${pd.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button  onclick ="showDetails(${pd})" id="details-btn" class="btn btn-danger">Details</button></div>
       </div>
       
       `;
     document.getElementById("all-products").appendChild(div);
+
+    
+    const rating = pd.rating.rate;
+    getRatings(className, rating, startTotal);
+
   });
 
 };
+
+const getRatings = (className, rating, startTotal) => {
+   // to get percentage of rating;
+   const percentage = (rating / startTotal) * 100;
+
+   // rounded to nearest 10;
+
+   const percentageRounded = `${Math.round(percentage * 10) / 10}% `;
+
+   // set width of starts inner to percentage;
+
+   document.querySelector(`.${className} .star-inner`).style.width = percentageRounded;
+}
 
 
 

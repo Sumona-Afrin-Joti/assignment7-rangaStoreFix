@@ -11,6 +11,9 @@ body {
   background-position: fixed;
   color: white;
 }
+.main{
+  margin-left: 40px;
+}
 
 .search-field {
   border: none;
@@ -56,6 +59,7 @@ body {
   color: black;
   padding: 10px;
   border-radius: 10px;
+  border: 1px solid transparent;
 }
 .single-product {
   display: flex;
@@ -74,6 +78,34 @@ body {
 .product-image {
   width: 150px;
   object-fit: cover;
+}
+
+.star-outer{
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.star-inner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.star-outer::before{
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 200;
+  color:#ccc;
+}
+.star-inner::before{
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color:#f8ce0b;
 }
 .cart {
   width: 350px;
